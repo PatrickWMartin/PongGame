@@ -34,7 +34,6 @@ const leftPaddle = {
     yPos: 150,
     speed: 5,
 };
-
 const rightPaddle = {
     height: 50,
     width: 10,
@@ -43,6 +42,10 @@ const rightPaddle = {
     speed: 5,
 };
 
+document.addEventListener('mousemove', e => {
+    if (e.y + rightPaddle.height < 300 && e.y > 0)
+        rightPaddle.yPos = e.y 
+});
 const draw = function (){
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, width, height);
