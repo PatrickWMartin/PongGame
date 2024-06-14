@@ -17,17 +17,18 @@ const ball = {
     }
 };
 
-const draw = function (ball){
+const draw = function (){
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, width, height);
 
     ctx.fillStyle = "white";
+    ctx.beginPath();
     ctx.arc(ball.xPos, ball.yPos, ball.size, 0, 2 * Math.PI);
     ctx.fill();
 }
 
 const gameLoop = function(){
-    draw(ball);
+    draw();
     ball.updatePos();
     setTimeout(gameLoop, 100);
 }
