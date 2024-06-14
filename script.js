@@ -27,6 +27,14 @@ const ball = {
     },
 };
 
+const leftPaddle = {
+    height: 50,
+    width: 10,
+    xPos: 20,
+    yPos: 150,
+    speed: 5,
+};
+
 const draw = function (){
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, width, height);
@@ -35,6 +43,8 @@ const draw = function (){
     ctx.beginPath();
     ctx.arc(ball.xPos, ball.yPos, ball.size, 0, 2 * Math.PI);
     ctx.fill();
+
+    ctx.fillRect(leftPaddle.xPos, leftPaddle.yPos, leftPaddle.width,leftPaddle.height);
 }
 
 const gameLoop = function(){
