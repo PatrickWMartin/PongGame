@@ -9,12 +9,22 @@ const ball = {
     size: 5,
     xPos: 50,
     yPos: 50,
-    xSpeed: 2,
+    xSpeed: 3,
     ySpeed: 2,
     updatePos: function (){
         this.xPos += this.xSpeed;
         this.yPos += this.ySpeed;
-    }
+    },
+    checkForCollisions: function (){
+        if (this.xPos < 0 + ball.size || this.xPos > width - ball.size){
+            this.xSpeed = -this.xSpeed;
+        }
+
+        if (this.yPos < 0 + ball.size || this.yPos > height - ball.size){
+            this.ySpeed = -this.ySpeed;
+        }
+
+    },
 };
 
 const draw = function (){
@@ -30,7 +40,8 @@ const draw = function (){
 const gameLoop = function(){
     draw();
     ball.updatePos();
-    setTimeout(gameLoop, 100);
+    ball.checkForCollisions();
+    setTimeout(gameLoop, 30);
 }
 
 gameLoop();
