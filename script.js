@@ -35,6 +35,14 @@ const leftPaddle = {
     speed: 5,
 };
 
+const rightPaddle = {
+    height: 50,
+    width: 10,
+    xPos: width - 20,
+    yPos: 150,
+    speed: 5,
+};
+
 const draw = function (){
     ctx.fillStyle = "black";
     ctx.fillRect(0, 0, width, height);
@@ -45,6 +53,7 @@ const draw = function (){
     ctx.fill();
 
     ctx.fillRect(leftPaddle.xPos, leftPaddle.yPos, leftPaddle.width,leftPaddle.height);
+    ctx.fillRect(rightPaddle.xPos, rightPaddle.yPos, rightPaddle.width,rightPaddle.height);
 }
 
 const gameLoop = function(){
