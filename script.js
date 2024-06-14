@@ -11,6 +11,10 @@ const ball = {
     yPos: 50,
     xSpeed: 2,
     ySpeed: 2,
+    updatePos: function (){
+        this.xPos += this.xSpeed;
+        this.yPos += this.ySpeed;
+    }
 };
 
 const draw = function (ball){
@@ -22,5 +26,12 @@ const draw = function (ball){
     ctx.fill();
 }
 
-draw(ball);
+const gameLoop = function(){
+    draw(ball);
+    ball.updatePos();
+    setTimeout(gameLoop, 100);
+}
+
+gameLoop();
+
 
